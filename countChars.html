@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="windows-1252">
+		<title>Count Letters</title>
+		<style>
+		textarea{
+			width: 150px;
+			height: 50px;
+			resize: none;
+		}
+		</style>
+		<script>
+		function countChars(){
+			// array of letters
+			var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+			// array of letters that have already been found in the text 
+			var lettersFound = [];
+			// get the text entered and convert to lower case 
+			var text = document.getElementById("text").value.toLowerCase();
+	
+	        // loop through each character of the text entered
+			for(i=0;i< text.length;i++){
+				var letter = text[i];
+				// check if it is a letter of the alphabet 
+				if(letters.includes(letter)){
+				    // if the letter has not already been found in the text then append it to the array
+					if(!lettersFound.includes(letter)){
+						lettersFound.push(letter);
+					}
+				}
+			}
+			// display the message along with the number of different letters
+			document.getElementById("numLetters").innerHTML = "Text contains " + lettersFound.length + " different letters";
+		}
+		</script>
+	</head>
+	<body>
+		<div>Enter some text to see how many different letters of the alphabet it contains</div>
+		<textarea id="text"></textarea>
+		<br><label id="numLetters" ></label>
+		<br><button onclick="countChars()">Count Letters</button>
+	</body>
+</html>
